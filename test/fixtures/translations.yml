@@ -1,0 +1,17 @@
+one:
+  from_sentence: Give me some beer!
+  from_language_id: 1
+  to_sentence: Geben Sie mir ein Bier!
+  to_language_id: 2
+
+two:
+  from_sentence: May I please have one beer?
+  from_language_id: 1
+  to_sentence: Darf ich Sie bitte ein Bier?
+  to_language_id: 2
+
+three:
+  from_sentence: 私はビールをくれ！
+  from_language_id: 3
+  to_sentence: Give me a beer!
+  to_language_id: 1

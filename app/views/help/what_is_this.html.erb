@@ -1,0 +1,39 @@
+<% content_for(:styles) do %>
+  <%= stylesheet_link_tag 'help/what_is_this' %>
+<% end %>
+
+<% @title = 'What is this?' %>
+
+<h1>What is this?</h1>
+<p><b>Rosettasaurus</b> is a <b>multilingual sentence wiktionary</b>.</p>
+<p>
+  When people are translating between different languages, <br/>most of the time they 
+  are looking to communicate something through a phrase or sentence, <br/>rather 
+  than using an individual word.
+</p>
+<p>
+  Words by themselves often lack the <b>context</b> required to reliably bridge the mutilingual gap.
+</p>
+<p>
+  The goal of the <b>Rosettasaurus</b> is to offer an alternative<br/> to a translation 
+  dictionary by offering <b>translations <br/>at the sentence or phrase level, 
+  instead of the word level</b>.
+</p>
+<p>
+  <b>Rosettasaurus</b> also offers an alternative to services like Google Translate,<br/>
+  which use 'machine translation' to translate text. <br/>These services guess
+  translations based on statistical methods <br/>applied to web pages found on the
+  internet.
+</p>
+<p>
+  The goal of <b>Rosettasaurus</b> is to establish a <b>community wiki site</b> <br/>within which
+  an authoritative <b>'human translation'</b> can be maintained <br/>for a large set of common
+  sentences and phrases. <br/>
+</p>
+<p>
+  A full audit trail of edits to translations is kept,<br/>
+  which can then be moderated by administrators and the larger community.
+</p>
+<p>
+  <%= link_to 'Try it out', base_url %>
+</p>

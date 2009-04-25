@@ -1,0 +1,20 @@
+#member-bar {
+    border-bottom: 1px solid #cccccc;
+    padding: 5px 10px;
+    font-size: 11px;
+    background-color: #F9F9F9;
+    height: 14px;
+}
+
+#member-bar #logged-in {
+    float: right;
+}
+
+#member-bar a {
+    border-bottom: 1px dotted black;
+}
+
+#page {
+    padding: 100px 20px;
+    text-align: center;
+}

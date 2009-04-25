@@ -1,0 +1,34 @@
+<% content_for(:styles) do %>
+  <%= stylesheet_link_tag 'form', 
+    'search/index' %>
+<% end %>
+<% content_for(:scripts) do %>
+  <%= javascript_include_tag 'form', 'search/index' %>
+<% end %>
+
+<% @description = "We're building a multilingual sentence wiktionary." %>
+
+<h1>rosettasaurus.</h1>
+
+<% if flash[:error] %>
+<div id="error">
+  <%= flash[:error] %>
+</div>
+<% end %>
+<% if flash[:notice] %>
+<div id="error">
+  <%= flash[:notice] %>
+</div>
+<% end %>
+
+<% form_tag search_url, :id => 'search-form', :onsubmit => 'return validateSearchForm();', :method => :get do %>
+<p>Please translate this <%=  select 'language', 'from', @languages %> sentence:</p>
+<fieldset>
+  <%= text_area_tag 'query', nil, :rows => 2 %>
+</fieldset>
+<p>into <%=  select 'language', 'to', @languages %> for me!</p>
+<div class="alert" id="empty-query">Please type a sentence into the box before clicking go.</div>
+<p><%= submit_tag 'go', :class => 'button' %></p>
+<% end %>
+
+<p id="what-link"><%= link_to 'What is rosettasaurus?', help_url(:action => 'what_is_this') %></p>

@@ -1,0 +1,36 @@
+<% content_for(:styles) do %>
+  <%= stylesheet_link_tag 'form', 'users/new' %>
+<% end %>
+<% content_for(:scripts) do %>
+  <%= javascript_include_tag 'users/new' %>
+<% end %>
+
+<% @title = 'New account' %>
+
+<h1>new account.</h1>
+<% @user.password = @user.password_confirmation = nil %>
+
+<%= error_messages_for :user %>
+<% form_for :user, :url => users_path do |f| -%>
+<fieldset>
+<%= label_tag 'login' %>
+<%= f.text_field :login, :class => 'text' %>
+</fieldset>
+
+<fieldset>
+<%= label_tag 'email' %>
+<%= f.text_field :email, :class => 'text' %>
+</fieldset>
+
+<fieldset>
+<%= label_tag 'password' %>
+<%= f.password_field :password, :class => 'text' %>
+</fieldset>
+
+<fieldset>
+<%= label_tag 'password_confirmation', 'Confirm Password' %>
+<%= f.password_field :password_confirmation, :class => 'text' %>
+</fieldset>
+
+<p><%= submit_tag 'sign up', :class => 'button' %></p>
+<% end -%>

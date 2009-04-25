@@ -1,0 +1,15 @@
+#page {
+    padding-top: 50px;
+}
+
+#page h1 {
+    font-size: 40px;
+}
+
+#page p {
+    margin: 10px 0px;
+}
+
+#page b {
+    font-weight: normal;
+}

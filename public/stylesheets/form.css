@@ -1,0 +1,31 @@
+form input.button {
+    height: 30px;
+    cursor: pointer;
+    padding: 0px 10px 2px;
+    width: 0; /* IE Fix */
+    overflow: visible; /* IE Fix */
+}
+
+form input.button[class] {  /* IE Fix */
+    width: auto;
+}
+
+input, textarea, select {
+    font-family: Georgia, Helvetica, serif;
+}
+
+.alert {
+    display: none;
+    color: #C21820;
+}
+
+label {
+    margin: 5px 0px 0px;
+    display: block;        
+}
+
+input.text {
+    margin: 5px 0px;
+    text-align: center;
+    font-size: 18px;
+}

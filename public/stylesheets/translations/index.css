@@ -1,0 +1,33 @@
+body {
+    padding-bottom: 20px;
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+#page {
+    margin: 0px 50px;
+    padding-top: 50px;
+}
+
+table#translations {
+    width: 100%;
+}
+
+th {
+    font-weight: bold;
+    color: #C21820;
+    text-align: left;
+    padding: 5px;
+}
+
+td {
+    text-align: left;
+    padding: 5px;
+}
+
+#links {
+    margin-top: 30px;
+}

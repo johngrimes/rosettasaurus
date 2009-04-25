@@ -1,0 +1,13 @@
+set_utf_xml
+xml.instruct!
+xml.urlset :xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9",
+  'xmlns:xsi' => "http://www.w3.org/2001/XMLSchema-instance",
+  'xsi:schemaLocation' => "http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" do
+  @translations.each do |translation|
+    xml.url do
+      xml.loc show_translation_url(:from_language => translation.from_language.tag, :to_language => translation.to_language.tag, :id => translation.id)
+      xml.lastmod translation.updated_at.blank? ? w3c_date(translation.created_at.utc) : w3c_date(translation.updated_at.utc)
+      xml.priority '0.5'
+    end
+  end
+end

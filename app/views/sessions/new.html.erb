@@ -1,0 +1,42 @@
+<% content_for(:styles) do %>
+  <%= stylesheet_link_tag 'form', 'sessions/new' %>
+<% end %>
+<% content_for(:scripts) do %>
+  <%= javascript_include_tag 'form', 'sessions/new' %>
+<% end %>
+
+<% @title = 'Login' %>
+
+<% if flash[:error] %>
+  <div id="error">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+<% if flash[:notice] %>
+  <div id="error">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<% form_tag session_path, :id => 'login-form', :onsubmit => 'return validateForm();' do -%>
+  <fieldset>
+    <%= label_tag 'login' %>
+    <%= text_field_tag 'login', @login, :class => 'text' %>
+  </fieldset>
+
+  <fieldset>
+    <%= label_tag 'password' %>
+    <%= password_field_tag 'password', nil, :class => 'text' %>
+  </fieldset>
+
+  <fieldset id="remember-me">
+    <%= check_box_tag 'remember_me', '1', @remember_me %>&#160;&#160;&#160;Remember me!
+  </fieldset>
+
+  <div class="alert" id="empty-login">Please enter your user name.</div>
+  <div class="alert" id="empty-password">Please enter your password.</div>
+
+  <p><%= submit_tag 'log in', :class => 'button' %></p>
+  <p>or</p>
+  <p><%= link_to 'get an account', signup_url %></p>
+<% end -%>

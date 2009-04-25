@@ -1,0 +1,26 @@
+#page {
+    padding-top: 50px;
+}
+
+form p {
+    margin: 10px 0px;
+}
+
+textarea {
+    font-size: 20px;
+    width: 450px;
+    height: 51px;
+    text-align: center;
+}
+
+form input.button {
+    margin-top: 15px;
+}
+
+#comment {
+    margin-bottom: 15px;
+}
+
+#comment-label {
+    margin-top: 20px;
+}

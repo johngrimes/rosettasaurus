@@ -1,0 +1,34 @@
+<% content_for(:styles) do %>
+  <%= stylesheet_link_tag 'translations/index' %>
+<% end %>
+
+<% @title = 'All translations' %>
+
+<h1>Listing translations</h1>
+
+<table id="translations">
+  <tr>
+    <th>From sentence</th>
+    <th>From language</th>
+    <th>To sentence</th>
+    <th>To language</th>
+  </tr>
+
+<% for translation in @translations %>
+  <tr>
+    <td><%=h translation.from_sentence %></td>
+    <td><%=h translation.from_language.description %></td>
+    <td><%=h translation.to_sentence %></td>
+    <td><%=h translation.to_language.description %></td>
+    <td><%= link_to 'Show', show_translation_url(:from_language => translation.from_language.tag, :to_language => translation.to_language.tag, :id => translation.id) %></td>
+    <td><%= link_to 'Edit', edit_translation_path(translation) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<div id="links">
+<%= link_to 'New translation', new_translation_path %> |
+<%= link_to 'Home', base_url %>
+</div>

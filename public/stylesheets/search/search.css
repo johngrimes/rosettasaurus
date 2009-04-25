@@ -1,0 +1,20 @@
+#page h1 {
+    font-size: 50px;
+    margin: 10px 0px 10px;
+}
+
+#page h2 {
+    margin: 50px 0px 10px;
+}
+
+.similar {
+    font-size: 20px;
+}
+
+#new-translation-form {
+    display: none;
+}
+
+#links {
+    margin-top: 50px;
+}

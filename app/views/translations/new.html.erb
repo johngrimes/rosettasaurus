@@ -1,0 +1,26 @@
+<% content_for(:styles) do %>
+  <%= stylesheet_link_tag 'form', 
+    'translations/new' %>
+<% end %>
+<% content_for(:scripts) do %>
+  <%= javascript_include_tag 'form', 'translations/new' %>
+<% end %>
+
+<% @title = 'New translation' %>
+
+<% form_for @translation, :id => 'translation-form', :html => { :onsubmit => 'return validateForm();' } do |f| %>
+  <%= f.error_messages %>
+  <p>The <%=  f.select :from_language_id, @languages %> sentence:</p>
+  <fieldset>
+    <%= f.text_area :from_sentence, :rows => 2 %>
+  </fieldset>
+  <p>translates to:</p>
+  <fieldset>
+    <%= f.text_area :to_sentence, :rows => 2 %>
+  </fieldset>
+  <p>in <%= f.select :to_language_id, @languages %></p>
+  <div class="alert" id="empty-from-sentence">Please type a sentence to translate from.</div>
+  <div class="alert" id="empty-to-sentence">Please type a translated sentence.</div>
+  <p><%= submit_tag 'add new translation', :class => 'button' %></p>
+<% end %>
+<p><%= link_to_function 'Back', 'javascript:history.back()' %></p>

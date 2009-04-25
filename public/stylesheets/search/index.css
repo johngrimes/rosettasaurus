@@ -1,0 +1,22 @@
+#page h1 {
+    font-size: 70px;
+}
+
+form p {
+    margin: 10px 0px;
+}
+
+textarea {
+    font-size: 20px;
+    width: 450px;
+    height: 51px;
+    text-align: center;
+}
+
+.alert {
+    margin: 20px 0px;
+}
+
+#what-link {
+    margin-top: 30px;
+}

@@ -1,0 +1,23 @@
+<% content_for(:styles) do %>
+  <%= stylesheet_link_tag 'translations/show' %>
+<% end %>
+<% content_for(:scripts) do %>
+  <%= javascript_include_tag 'http://lingro.com/widgets/tooltips.js' %>
+<% end %>
+
+<% @title = @translation.sentence(@from_language.id) %>
+<% @description = "#{@to_language.description} translation for the #{@from_language.description} sentence #{@translation.sentence(@from_language.id)}" %>
+
+<p>The <b><%= @from_language.description %></b> sentence:</p>
+<h1<% if @from_language.lingro_tag %> class="lingro_container" language="<%= @from_language.lingro_tag %>"<% end %>><%=h @translation.sentence(@from_language.id) %></h1>
+<p>translates to</p>
+<h1<% if @to_language.lingro_tag %> class="lingro_container" language="<%= @to_language.lingro_tag %>"<% end %>><%=h @translation.sentence(@to_language.id) %></h1>
+<p>in <b><%= @to_language.description %></b>.</p>
+
+<p class="tip">You can click on individual words in the translation to get their meanings.</p>
+
+<div id="links">
+<%= link_to 'Edit this translation', edit_translation_url(@translation) %> |
+<%= link_to 'History', history_url(:id => @translation.id) %> |
+<%= link_to 'Search again', base_url %>
+</div>

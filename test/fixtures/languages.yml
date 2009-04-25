@@ -1,0 +1,14 @@
+english:
+  id: 1
+  tag: en
+  description: English
+
+german:
+  id: 2
+  tag: de
+  description: German
+
+japanese:
+  id: 3
+  tag: jp
+  description: Japanese

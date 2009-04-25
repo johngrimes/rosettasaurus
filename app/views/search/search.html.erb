@@ -1,0 +1,29 @@
+<% content_for(:styles) do %>
+  <%= stylesheet_link_tag 'search/search' %>
+<% end %>
+<% content_for(:scripts) do %>
+  <%= javascript_include_tag 'http://lingro.com/widgets/tooltips.js' %>
+<% end %>
+
+<% @title = @query %>
+
+<p>There were no exact <b><%= @to_language.description %></b> translations for the sentence:</p>
+<h1<% if @from_language.lingro_tag %> class="lingro_container" language="<%= @from_language.lingro_tag %>"<% end %>><%=h @query %></h1>
+<p>You can <%= link_to_function 'add a translation', "$('#new-translation-form').submit()" %> for this sentence.</p>
+
+<% if @similar && @similar.length > 0 %>
+  <h2>We have <b><%= @to_language.description %></b> translations for these similar sentences:</h2>
+  <% @similar.each do |translation| %>
+    <div class="similar"><%= link_to translation.sentence(@from_language.id), show_translation_url(:from_language => @from_language.tag, :to_language => @to_language.tag, :id => translation.id) %></div>
+  <% end %>
+<% end %>
+
+<% form_tag new_translation_path, :id => 'new-translation-form' do %>
+  <%= hidden_field_tag 'translation[from_sentence]', @new_translation.from_sentence %>
+  <%= hidden_field_tag 'translation[from_language_id]', @new_translation.from_language.id %>
+  <%= hidden_field_tag 'translation[to_language_id]', @new_translation.to_language.id %>
+<% end %>
+
+<div id="links">
+<%= link_to 'Search again', base_url %>
+</div>
