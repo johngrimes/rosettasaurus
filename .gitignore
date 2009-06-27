@@ -3,3 +3,4 @@ config/environment.rb
 log/*
 nbproject/*
 tmp/*
+config/sphinx/*.conf
