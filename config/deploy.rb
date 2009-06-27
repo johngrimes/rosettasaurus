@@ -1,13 +1,14 @@
 set :application, "rosettasaurus"
-set :repository,  "svn://rosettasaurus.com/opt/svnserve/rosettasaurus/rosettasaurus/app"
-set :deploy_to, "/home/webadmin/rosettasaurus.com"
+set :repository,  "git@github.com:johngrimes/rosettasaurus.git"
+set :deploy_to, "/var/www/sites/rosettasaurus.com"
+set :scm, "git"
 
-set :user, "webadmin"
-set :runner, "webadmin"
+set :user, "deploy"
+set :runner, "deploy"
 
-role :app, "rosettasaurus.com"
-role :web, "rosettasaurus.com"
-role :db,  "rosettasaurus.com", :primary => true
+role :app, "67.23.31.183"
+role :web, "67.23.31.183"
+role :db,  "67.23.31.183", :primary => true
 
 namespace :deploy do
   task :restart do
@@ -18,10 +19,11 @@ end
 after :deploy, 'deploy:cleanup'
 
 task :after_update_code, :roles => :app do
-  run "ln -nfs #{shared_path}/system/db/database.yml #{release_path}/config/database.yml"
-  sudo "chown -R webadmin:webadmin #{deploy_to}"
+  run "ln -nfs #{shared_path}/db/database.yml #{release_path}/config/database.yml"
+  run "ln -nfs #{shared_path}/config/environment.rb #{release_path}/config/environment.rb"
+  sudo "chown -R deploy:www-data #{deploy_to}"
 end
 
 task :after_setup, :roles => [:app, :db, :web] do
-  sudo "chown -R webadmin:webadmin #{deploy_to}"
+  sudo "chown -R deploy:www-data #{deploy_to}"
 end
