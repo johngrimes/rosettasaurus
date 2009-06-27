@@ -21,6 +21,11 @@ after :deploy, 'deploy:cleanup'
 task :after_update_code, :roles => :app do
   run "ln -nfs #{shared_path}/db/database.yml #{release_path}/config/database.yml"
   run "ln -nfs #{shared_path}/config/environment.rb #{release_path}/config/environment.rb"
+
+  run "ln -nfs #{shared_path}/sphinx/sphinx.development.conf #{release_path}/config/sphinx/sphinx.development.conf"
+  run "ln -nfs #{shared_path}/sphinx/sphinx.test.conf #{release_path}/config/sphinx/sphinx.test.conf"
+  run "ln -nfs #{shared_path}/sphinx/sphinx.production.conf #{release_path}/config/sphinx/sphinx.production.conf"
+
   sudo "chown -R deploy:www-data #{deploy_to}"
 end
 
