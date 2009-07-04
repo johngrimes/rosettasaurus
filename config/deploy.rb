@@ -6,9 +6,9 @@ set :scm, "git"
 set :user, "deploy"
 set :runner, "deploy"
 
-role :app, "67.23.31.183"
-role :web, "67.23.31.183"
-role :db,  "67.23.31.183", :primary => true
+role :app, "74.207.246.162"
+role :web, "74.207.246.162"
+role :db,  "74.207.246.162", :primary => true
 
 namespace :deploy do
   task :restart do
@@ -25,6 +25,9 @@ task :after_update_code, :roles => :app do
   run "ln -nfs #{shared_path}/sphinx/sphinx.development.conf #{release_path}/config/sphinx/sphinx.development.conf"
   run "ln -nfs #{shared_path}/sphinx/sphinx.test.conf #{release_path}/config/sphinx/sphinx.test.conf"
   run "ln -nfs #{shared_path}/sphinx/sphinx.production.conf #{release_path}/config/sphinx/sphinx.production.conf"
+
+  # Symlink to rake task for controlling thin cluster
+  run "ln -nfs #{deploy_to}/../common/tasks/thin.rake #{release_path}/lib/tasks/thin.rake"
 
   sudo "chown -R deploy:www-data #{deploy_to}"
 end
